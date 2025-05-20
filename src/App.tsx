@@ -1,11 +1,21 @@
-import React from 'react';
-import './App.css';
+import AppRoutes from './routes/AppRoutes';
+import { CartProvider } from './context/CartContext';
+import { BrowserRouter } from 'react-router-dom';
+import Header from './components/Header';
 
 function App() {
   return (
-    <h1 className="text-3xl font-bold underline text-red-600">
-      Simple React Typescript Tailwind Sample
-    </h1>
+    <CartProvider>
+      <BrowserRouter>
+        <div className="min-h-screen flex flex-col">
+          <Header />
+          <main className="flex-1">
+            <AppRoutes />
+          </main>
+          <footer className="bg-gray-100 p-4 text-center">© 2025 MyShop</footer>
+        </div>
+      </BrowserRouter>
+    </CartProvider>
   );
 }
 
